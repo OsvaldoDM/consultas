@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('infoConsultas');
+    res.render('main');
 });
 
 // Ruta para mostrar los datos del ejs
@@ -116,6 +116,9 @@ app.get('/paciente/:id', (req, res) => {
             // Parsear el JSON
             const pacientes = JSON.parse(data);
 
+            const fechaActual = new Date();
+            const formattedDate = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
+
             // Buscar el paciente por su ID
             const paciente = pacientes.find(p => p.id === pacienteId);
 
@@ -125,14 +128,14 @@ app.get('/paciente/:id', (req, res) => {
             }
 
             // Renderizar la vista EJS y enviar los datos del paciente
-            res.render('infoConsultas', { pacienteInfo });
+            res.render('infoConsultas', { paciente, fechaActual: formattedDate });
+            console.log(paciente)
         } catch (error) {
             console.error('Error al analizar el archivo JSON:', error);
             res.status(500).send('Error interno del servidor');
         }
     });
 });
-
 
 
 // Iniciar el servidor
