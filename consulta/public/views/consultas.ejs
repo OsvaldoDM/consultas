@@ -71,14 +71,15 @@
             <div class="consultas">
 
               <div class="info">
-                <h1> <%= paciente.nombre %> </h1>
+                <h1 class="name"> <%= paciente.nombre %> </h1>
                 <p> <%= fechaActual %> </p>
                 <p> <%= paciente.motivo %> </p>
               </div>
 
               <div class="costBtnInfo">
                 <h2> $<%= paciente.costo %> </h2>
-                <a class="btnInfo" href="/paciente/<%= paciente.id %>">Ver detalles</a>
+                <a class="btnInfo" href="/paciente/<%= paciente.id %>">Diagnostico</a>
+                <a class="btnInfoDetails" href="/detalles/<%= paciente.id %>">Ver detalles</a>
               </div>
             </div>
         </div>

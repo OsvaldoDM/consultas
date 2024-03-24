@@ -243,6 +243,22 @@ section {
     width: 50%;
 }
 
+.costBtnInfo .btnInfoDetails {
+    padding: 0.625em 1.25em;
+    font-size: 1em;
+    background-color: #3ad4e2;
+    color: #fff;
+    border: none;
+    border-radius: 0.313em;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 0.5em;
+}
+
+.costBtnInfo .btnInfoDetails:hover {
+    background-color: #0056b3;
+}
+
 .costBtnInfo .btnInfo {
     padding: 0.625em 1.25em;
     font-size: 1em;
