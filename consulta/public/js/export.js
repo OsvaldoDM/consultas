@@ -1,5 +1,8 @@
 document.getElementById('btnExportPDF').addEventListener('click', async () => {
-    const response = await fetch('/exportar-pdf/:id');
+    const urlActual = window.location.href;
+    const id = urlActual.replace("http://localhost:3000/detalles/", "");
+
+    const response = await fetch('/exportar-pdf/'+id);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');

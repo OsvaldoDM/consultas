@@ -58,5 +58,20 @@
     "peso": null,
     "talla": null,
     "fecha": "01/03/2024"
+  },
+  {
+    "id": "0d8bdd31-227d-443f-85db-9b45ce7e0057",
+    "nombre": "Son gku",
+    "motivo": "Dolores",
+    "costo": "1200",
+    "diagnostico": "",
+    "edad": "",
+    "ta": "",
+    "fr": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null,
+    "fecha": "24/3/2024"
   }
 ]
