@@ -7,7 +7,7 @@ const puppeteer = require('puppeteer');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 // Configurar la ruta de las vistas
 app.set('views', path.join(__dirname, 'public', 'views'));

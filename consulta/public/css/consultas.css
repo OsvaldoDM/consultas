@@ -72,7 +72,7 @@ section {
     background-image: url("../img/search.png");
     background-size: 1em;
     background-repeat: no-repeat;
-    width: 80em;
+    width: 70vw;
 }
 
 .formPopUp .inputSearch:focus {
