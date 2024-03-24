@@ -230,7 +230,34 @@ app.get('/detalles/:id', (req, res) => {
     });
 });
 
+app.get('/exportar-pdf/:id', async (req, res) => {
 
+    const pacienteId = req.params.id;
+    console.log(pacienteId);
+
+    try {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        
+        // Configurar la URL de la página HTML que deseas exportar
+        await page.goto('http://localhost:3000/detalles/' + pacienteId, { waitUntil: 'networkidle0' });
+
+        // Generar el PDF
+        const pdfBuffer = await page.pdf({ format: 'A4' });
+        await browser.close();
+
+        // Enviar el PDF como respuesta
+        res.set({
+            'Content-Type': 'application/pdf',
+            'Content-Length': pdfBuffer.length,
+            'Content-Disposition': 'attachment; filename="archivo.pdf"'
+        });
+        res.send(pdfBuffer);
+    } catch (error) {
+        console.error('Error al exportar a PDF:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});
 
 // Iniciar el servidor
 app.listen(port, () => {
