@@ -36,11 +36,9 @@ app.get('/consultas', (req, res) => {
 
         try {
             const pacientes = JSON.parse(data);
-            const fechaActual = new Date();
-            const formattedDate = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
             
             // Renderizar el archivo EJS y enviarlo como respuesta
-            res.render('consultas', { pacientes, fechaActual: formattedDate });
+            res.render('consultas', { pacientes });
         } catch (error) {
             console.error('Error al analizar el archivo JSON:', error);
             res.status(500).send('Error interno del servidor');
@@ -63,6 +61,10 @@ app.post('/addpaciente', (req, res) => {
             // Parsear el JSON
             const pacientes = JSON.parse(data);
 
+            // Obtener la fecha actual
+            const fechaActual = new Date();
+            const formattedDate = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
+
             // Agregar el nuevo paciente
             const nuevoPaciente = {
                 id: uuidv4(),
@@ -76,7 +78,8 @@ app.post('/addpaciente', (req, res) => {
                 fc: "",
                 temperatura: null,
                 peso: null,
-                talla: null
+                talla: null,
+                fecha: formattedDate,
                 // Agrega más campos según sea necesario
             };
 
