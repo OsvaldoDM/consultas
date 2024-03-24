@@ -11,7 +11,8 @@
     "fc": "123",
     "temperatura": "123",
     "peso": "413",
-    "talla": "231"
+    "talla": "231",
+    "fecha": "01/03/2024"
   },
   {
     "id": "214f92fc-6f91-4858-b9fa-28514c3d2cdd",
@@ -25,7 +26,8 @@
     "fc": "12",
     "temperatura": "28",
     "peso": "128",
-    "talla": "32"
+    "talla": "32",
+    "fecha": "01/03/2024"
   },
   {
     "id": "1e0bfc0e-8901-44f2-9fbb-a2d7887b28db",
@@ -39,7 +41,8 @@
     "fc": "",
     "temperatura": null,
     "peso": null,
-    "talla": null
+    "talla": null,
+    "fecha": "01/03/2024"
   },
   {
     "id": "98852175-6fe8-48ae-a5ad-6aa7e3771393",
@@ -53,6 +56,7 @@
     "fc": "",
     "temperatura": null,
     "peso": null,
-    "talla": null
+    "talla": null,
+    "fecha": "01/03/2024"
   }
 ]
