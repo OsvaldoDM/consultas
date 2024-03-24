@@ -1,0 +1,93 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(221, 228, 234);
+}
+
+header {
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625em;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 3.125em;
+    margin-left: 4.375em;
+}
+
+.containerForm {
+    width: 50%;
+    height: 25%;
+    margin-top: 12em;
+    margin-left: 21.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3.125em;
+    box-shadow: 0 0 1.25em rgba(0, 0, 0, 0.2);
+    border-radius: 0.938em;
+    background-color: white;
+}
+
+
+.containerForm h2 {
+    text-align: center;
+    font-size: 1.875em;
+    text-transform: uppercase;
+    color: #2E2E2E;
+    margin-bottom: 1.563em;
+}
+
+.containerForm label {
+    font-size: 1.063em;
+    color: #575757;
+    margin-bottom: 0.625em;
+}
+
+.containerForm input {
+    padding: 0.625em 0.688em;
+    border: 0.063em solid #C3F8FF;
+    border-radius: 0.938em;
+    margin-bottom: 1.563em;
+    background-color: white;
+    outline: none;
+    color:#00ADEF;
+    font-size: 1em;
+    background-color: rgb(221, 228, 234);
+    width: 25em;
+}
+
+.containerForm .containerPassword {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerForm .containerBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerForm .btnInicio {
+    background-color: #00ADEF;
+    color: white;
+    padding: 0.5em 0.5em;
+    border-radius: 0.5em;
+    width: 8em;
+    cursor: pointer;
+} 
+
+.containerForm .btnInicio:hover {
+    background-color: #04B8FF;
+}

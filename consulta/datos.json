@@ -1,0 +1,50 @@
+[
+  {
+    "id": "66889db8-ccb6-489b-a9db-05cc34db3de6",
+    "nombre": "Yael Cortes Rubio",
+    "motivo": "Dolor abdominal",
+    "costo": "5679",
+    "diagnostico": "",
+    "ta": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null
+  },
+  {
+    "id": "214f92fc-6f91-4858-b9fa-28514c3d2cdd",
+    "nombre": "Ximena Cantera Reséndiz",
+    "motivo": "Gripa",
+    "costo": "1234",
+    "diagnostico": "",
+    "ta": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null
+  },
+  {
+    "id": "1e0bfc0e-8901-44f2-9fbb-a2d7887b28db",
+    "nombre": "Osvaldo del Valle Mejía",
+    "motivo": "Estres",
+    "costo": "123",
+    "diagnostico": "",
+    "ta": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null
+  },
+  {
+    "id": "98852175-6fe8-48ae-a5ad-6aa7e3771393",
+    "nombre": "Hugo Cortes Rubio",
+    "motivo": "Dolor de cabeza",
+    "costo": "1",
+    "diagnostico": "",
+    "ta": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null
+  }
+]

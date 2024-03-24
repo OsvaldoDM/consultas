@@ -1,0 +1,266 @@
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(221, 228, 234);
+}
+
+/* Header */
+header {
+    display: flex;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.625em;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 3.125em;
+    margin-left: 4.375em;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+}
+
+.btn .btnForm {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3ad4e2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn .btnForm:hover {
+    background-color: #0056b3;
+}
+
+/* Busqueda */
+section {
+    display: flex;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.formPopUp {
+    margin: auto;
+}
+
+.formPopUp > .containerForm {
+    display: flex;
+    background-color: #fff;
+    padding: 0.563em 15.375em 0.563em 3.625em;
+    border-radius: 1.875em;
+    border: 0.125em solid #3ad4e2;
+    box-shadow: rgba(255, 255, 255, 0.5) -0.5em -0.5em 0.938em,
+}
+
+.formPopUp .inputSearch {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    padding-left: 1.5em;
+    background-image: url("../img/search.png");
+    background-size: 1em;
+    background-repeat: no-repeat;
+    width: 80em;
+}
+
+.formPopUp .inputSearch:focus {
+    outline: none;
+}
+
+/*Pop up*/
+
+.window-background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(0.25em);
+    background-color: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.window-container {
+    position: relative;
+    background-color: #fff;
+    width: 34.375em;
+    height: auto;
+    padding: 1.5em;
+    border-radius: 0.5em;
+    animation-name: modal;
+    animation-duration: .5s;
+    box-shadow: 0 0.313em 0.938em -0.313em rgba(0, 0, 0, .4);
+    z-index: 10; 
+}
+
+@keyframes modal {
+    from {
+        transform: translateY(50vh);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.close {
+    transition: transform 0.5s cubic-bezier(0, -0.42, 1, -0.41);
+    transform: translateY(60vh);
+}
+
+.close-button {
+    position: absolute;
+    border-radius: 50%;
+    top: -0.938em;
+    right: -0.938em;
+    width: 2.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.063em solid #eee;
+    cursor: pointer;
+}
+
+.icon-x {
+    fill: rgb(54, 54, 54);
+}
+
+/*Info pop up*/
+.window-background .consultaD {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnAceptar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+
+.btnAddCons {
+    padding: 0.625em 0.75em;
+    font-size: 1em;
+    background-color: #3ad4e2;
+    color: #fff;
+    border: none;
+    border-radius: 0.313em;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.btnAddCons:hover {
+    background-color: #0056b3;
+}
+
+.inputInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputInfo .nameContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-right: 0.5em;
+}
+
+.inputInfo .costContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.inputDescription {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+
+.window-container input {
+    padding: 1.063em 0.688em;
+    border: 0.063em solid #00adef;
+    border-radius: 1.563em;
+    background-color: #fafafc;
+    outline: none;
+    color: #3ad4e2
+}
+
+/* Información */
+.consultas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 85vw;
+    overflow: hidden;
+    margin: 0.5em auto 0;
+    border-radius: 0.5em;
+}
+
+.consultas .info {
+    display: flex;
+    flex-direction: column;
+    float: left; 
+    width: 50%; 
+    margin-left: 5em;
+    margin-bottom: 0;
+}
+
+.consultas .costBtnInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: left; 
+    width: 50%;
+}
+
+.costBtnInfo .btnInfo {
+    padding: 0.625em 1.25em;
+    font-size: 1em;
+    background-color: #3ad4e2;
+    color: #fff;
+    border: none;
+    border-radius: 0.313em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.costBtnInfo .btnInfo:hover {
+    background-color: #0056b3;
+}
+
+.consultasContainer {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0em;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/consultas.css">
+    <title>Datos de pacientes</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+          <img src="/img/google.png" alt="Logo de prueba" class="logo-img">
+        </div>
+
+        <div class="btn">
+          <button class="btnForm" id="open-button">Nueva Consulta</button> 
+        </div>
+
+        <div class="window-background" id="window-background">
+          <div class="window-container" id="window-container">
+            
+            <button class="close-button" id="close-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="icon-x"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
+            </button>
+
+            <div class="consultaD">
+              <div class="titulo">
+                <h2>Datos de la nueva consulta</h2>
+              </div>
+            </div>
+
+            <form class="formPopUp" action="/addpaciente" method="POST">
+              <div class="inputInfo">
+                <div class="nameContainer">
+                  <label for="name">Nombre</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="costContainer">
+                  <label for="cost">Costo</label>
+                  <input type="number" id="cost" name="cost" required>
+                </div>
+              </div>
+              
+              <div class="inputDescription">
+                <label for="description">Motivo de la consulta</label>
+                <input type="text" id="description" name="description" required>
+              </div>
+              
+              <div class="btnAceptar">
+                <button class="btnAddCons" type="submit">Aceptar</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+    </header>
+
+    <section>
+      <form class="formPopUp" action="/consultas" method="GET">
+        <div class="containerForm">
+          <input class="inputSearch" id="filtroNombre" type="text" placeholder="Nombre del paciente">
+        </div>
+      </form>
+    </section>
+
+    <% pacientes.forEach(paciente => { %>
+
+        <div class="" id="consultasContainer">
+            <div class="consultas">
+
+              <div class="info">
+                <h1> <%= paciente.nombre %> </h1>
+                <p> <%= fechaActual %> </p>
+                <p> <%= paciente.motivo %> </p>
+              </div>
+
+              <div class="costBtnInfo">
+                <h2> $<%= paciente.costo %> </h2>
+                <a class="btnInfo" href="/paciente/<%= paciente.id %>">Ver detalles</a>
+              </div>
+            </div>
+        </div>
+
+    <% }); %> 
+
+    <script src="../js/newConsult.js"></script>
+</body>
+</html>

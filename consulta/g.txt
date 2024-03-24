@@ -1,0 +1,7 @@
+<!--  <h1>Detalle del Paciente</h1>
+    <ul>
+        <li>ID: <%= pacienteInfo.id %></li>
+        <li>Nombre: <%= pacienteInfo.nombre %></li>
+        <li>Motivo de consulta: <%= pacienteInfo.motivo %></li>
+    </ul>
+    -->
