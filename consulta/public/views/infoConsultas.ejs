@@ -10,7 +10,15 @@
     
     <header>
         <div class="logo">
-            <img src="/img/google.png" alt="Logo de prueba" class="logo-img">
+            <img src="../img/icono.png" alt="Logo de prueba" class="logo-img">
+        </div>
+        <div class="btn">
+            <% if (todosCamposLlenos) { %>
+                <button class="btnExportPDF" id="btnExportPDF">PDF</button> 
+            <% } else { %>
+                <!-- Si no todos los campos están llenos, el botón se oculta -->
+                <button class="btnExportPDF" id="btnExportPDF" style="display: none;">PDF</button>
+            <% } %>
         </div>
     </header>
 
@@ -36,7 +44,7 @@
                     </div>
                     <div class="fechaContainer">
                         <h4>Fecha:</h4>
-                        <p><%= fechaActual %></p>
+                        <p><%= paciente.fecha %></p>
                     </div>
                 </div>
         
@@ -94,8 +102,6 @@
         </div>
     </form>
 
-
-
-
+    <script src="../js/export.js"></script>
 </body>
 </html>

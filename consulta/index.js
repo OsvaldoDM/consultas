@@ -5,9 +5,10 @@ const path = require('path'); // Importar el módulo 'path'
 const bodyParser = require('body-parser');
 const puppeteer = require('puppeteer');
 const { v4: uuidv4 } = require('uuid');
+const PDFDocument = require('pdfkit');
 
 const app = express();
-const port = 3001;
+const port = 3000;
 
 // Configurar la ruta de las vistas
 app.set('views', path.join(__dirname, 'public', 'views'));
@@ -122,9 +123,6 @@ app.get('/paciente/:id', (req, res) => {
             // Parsear el JSON
             const pacientes = JSON.parse(data);
 
-            const fechaActual = new Date();
-            const formattedDate = `${fechaActual.getDate()}/${fechaActual.getMonth() + 1}/${fechaActual.getFullYear()}`;
-
             // Buscar el paciente por su ID
             const paciente = pacientes.find(p => p.id === pacienteId);
 
@@ -133,8 +131,10 @@ app.get('/paciente/:id', (req, res) => {
                 return;
             }
 
+            const todosCamposLlenos = Object.values(paciente).every(value => value !== '' && value !== null && value !== undefined);
+
             // Renderizar la vista EJS y enviar los datos del paciente
-            res.render('infoConsultas', { paciente, fechaActual: formattedDate });
+            res.render('infoConsultas', { paciente, todosCamposLlenos });
             console.log(paciente)
         } catch (error) {
             console.error('Error al analizar el archivo JSON:', error);
@@ -199,8 +199,7 @@ app.post('/guardar/:id', (req, res) => {
     });
 });
 
-
-app.get('/detalles/:id', (req, res) => {
+app.get('/archivo/:id', (req, res) => {
     
     const pacienteId = req.params.id;
     // Leer el archivo JSON
@@ -225,7 +224,7 @@ app.get('/detalles/:id', (req, res) => {
             }
 
             // Renderizar la vista EJS y enviar los datos del paciente actualizado
-            res.render('detalles', { paciente, fechaActual: formattedDate });
+            res.render('archivoPdf', { paciente, fechaActual: formattedDate });
         } catch (error) {
             console.error('Error al analizar el archivo JSON:', error);
             res.status(500).send('Error interno del servidor');
@@ -236,14 +235,14 @@ app.get('/detalles/:id', (req, res) => {
 app.get('/exportar-pdf/:id', async (req, res) => {
 
     const pacienteId = req.params.id;
-    console.log(pacienteId);
+
 
     try {
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
         
         // Configurar la URL de la página HTML que deseas exportar
-        await page.goto('http://localhost:3000/detalles/' + pacienteId, { waitUntil: 'networkidle0' });
+        await page.goto('http://localhost:3000/archivo/' + pacienteId, { waitUntil: 'networkidle0' });
 
         // Generar el PDF
         const pdfBuffer = await page.pdf({ format: 'A4' });
@@ -253,7 +252,7 @@ app.get('/exportar-pdf/:id', async (req, res) => {
         res.set({
             'Content-Type': 'application/pdf',
             'Content-Length': pdfBuffer.length,
-            'Content-Disposition': 'attachment; filename="archivo.pdf"'
+            'Content-Disposition': 'attachment; filename="receta mirell.pdf"'
         });
         res.send(pdfBuffer);
     } catch (error) {
@@ -262,6 +261,33 @@ app.get('/exportar-pdf/:id', async (req, res) => {
     }
 });
 
+app.get('/otroPdf', (req, res) => {
+    // Creamos un nuevo documento PDF
+    const doc = new PDFDocument();
+    
+    // Creamos un stream de lectura y escritura
+    const stream = doc.pipe(fs.createWriteStream('otroPdf.pdf'));
+    
+    // Agregamos el texto "Hola mundo" al PDF
+    doc.text('Hola mundo');
+    
+    // Cerramos el documento
+    doc.end();
+    
+    // Cuando el documento esté terminado, respondemos al cliente con el archivo PDF
+    stream.on('finish', () => {
+      res.download('otroPdf.pdf', 'hola_mundo.pdf', (err) => {
+        if (err) {
+          console.error('Error al descargar el PDF:', err);
+          res.status(500).send('Hubo un error al descargar el PDF');
+        } else {
+          console.log('PDF descargado exitosamente');
+        }
+      });
+    });
+  });
+
+  
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor web iniciado en http://localhost:${port}`);

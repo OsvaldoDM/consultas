@@ -20,7 +20,7 @@ header {
 }
 
 .logo img {
-    height: 3.125em;
+    height: 5.125em;
     margin-left: 4.375em;
 }
 
@@ -278,4 +278,16 @@ section {
     display: flex;
     flex-direction: column;
     padding-bottom: 0em;
+}
+
+@media only screen and (min-width: 600px) and (max-width: 950px) {
+    .formPopUp .inputSearch {
+        width: 50vw;
+    }   
+}
+
+@media only screen and (min-width: 951px) and (max-width: 1250px) {
+    .formPopUp .inputSearch {
+        width: 50vw;
+    }
 }

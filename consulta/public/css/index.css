@@ -19,7 +19,7 @@ header {
 }
 
 .logo img {
-    height: 3.125em;
+    height: 5.125em;
     margin-left: 4.375em;
 }
 
@@ -90,4 +90,13 @@ header {
 
 .containerForm .btnInicio:hover {
     background-color: #04B8FF;
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px) {
+
+    .containerForm {
+        margin-top: 9em;
+        margin-left: 14.5em;
+    }
+
 }

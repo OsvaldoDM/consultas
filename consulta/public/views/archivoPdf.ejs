@@ -3,31 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/detalleConsultas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/archivoPdf.css">
 
 </head>
 <body>
+
+    <header>
+        <img src="../img/header.jpg" alt="">
+    </header>
+
     <div class="containerInfo">   
             
         <div class="infoConsulta">
-        
-            <h2>INFORMACIÓN DE LA CONSULTA</h2>
-        
+
             <div class="infoUno">
                 <div class="nameContainer">
                     <h4>Paciente:</h4>
                     <p><%= paciente.nombre %></p>
                 </div>
-                <div class="edadContainer">
-                    <h4>Edad:</h4>
-                    <p><%= paciente.edad %></p>
+                <div class="diagContainer">
+                    <h4>Diagnostico:</h4>
+                    <p><%= paciente.diagnostico %></p>
                 </div>
             </div>
         
             <div class="infoDos">
-                <div class="diagContainer">
-                    <h4>Diagnostico:</h4>
-                    <p><%= paciente.diagnostico %></p>
+                <div class="edadContainer">
+                    <h4>Edad:</h4>
+                    <p><%= paciente.edad %></p>
                 </div>
                 <div class="fechaContainer">
                     <h4>Fecha:</h4>
@@ -38,44 +44,53 @@
         </div>
         
         <div class="infoReceta">
-            <h2>INFORMACIÓN DE LA RECETA</h2>
-        
-            <div class="infoUnoR">
-                <div class="taContainer">
-                    <h4>TA:</h4>
-                    <p><%= paciente.ta%></p>
+            
+            <div class="infoR">
+                <div class="infoUnoR">
+                    <div class="taContainer">
+                        <h4>TA:</h4>
+                        <p><%= paciente.ta%></p>
+                    </div>
+                    <div class="fcContainer">
+                        <h4>FC:</h4>
+                        <p><%= paciente.fc%></p>
+                    </div>
                 </div>
-                <div class="fcContainer">
-                    <h4>FC:</h4>
-                    <p><%= paciente.fc%></p>
+                
+                <div class="infoDosR">
+                    <div class="frContainer">
+                        <h4>FR:</h4>
+                        <p><%= paciente.fr%></p>
+                    </div>
+                    <div class="tempContainer">
+                        <h4>Temperatura:</h4>
+                        <p> <%= paciente.temperatura %> </p>
+                    </div>
+                </div>
+                
+                <div class="infoTresR">
+                    <div class="pesoContainer">
+                        <h4>Peso:</h4>
+                        <p><%= paciente.peso%></p>
+                    </div>
+                    <div class="tallaContainer">
+                        <h4>Talla:</h4>
+                        <p><%= paciente.talla%></p>
+                    </div>
                 </div>
             </div>
-        
-            <div class="infoDosR">
-                <div class="frContainer">
-                    <h4>FR:</h4>
-                    <p><%= paciente.fr%></p>
-                </div>
-                <div class="tempContainer">
-                    <h4>Temperatura:</h4>
-                    <p> <%= paciente.temperatura %> °C</p>
-                </div>
-            </div>
-        
-            <div class="infoTresR">
-                <div class="pesoContainer">
-                    <h4>Peso:</h4>
-                    <p><%= paciente.peso%></p>
-                </div>
-                <div class="tallaContainer">
-                    <h4>Talla:</h4>
-                    <p><%= paciente.talla%></p>
-                </div>
+
+            <div class="imgFondo">
+                <img src="../img/iconoBG.png" alt="">
             </div>
         
         </div>
 
     </div>
+
+    <footer>
+        <img src="../img/footer.jpg" alt="">
+    </footer>
 
 </body>
 </html>

@@ -1,6 +1,7 @@
+//Codigo para exportar PDF
 document.getElementById('btnExportPDF').addEventListener('click', async () => {
     const urlActual = window.location.href;
-    const id = urlActual.replace("http://localhost:3000/detalles/", "");
+    const id = urlActual.replace("http://localhost:3000/paciente/", "");
 
     const response = await fetch('/exportar-pdf/'+id);
     const blob = await response.blob();
@@ -14,3 +15,5 @@ document.getElementById('btnExportPDF').addEventListener('click', async () => {
     a.click();
     window.URL.revokeObjectURL(url);
 });
+
+
