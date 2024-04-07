@@ -6,13 +6,214 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/archivoPdf.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            width: 100%; 
+            margin-top: 3em;
+        }
+
+        header img {
+            width: 100%; 
+            display: block; 
+        }
+
+        /*Contenedor general*/
+        .containerInfo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .containerInfo h4 {
+            color: #0056b3;
+        }
+
+        .containerInfo  .infoConsulta{
+            display: flex;
+            width: 75em;
+            height: 10em;
+        }
+
+        .containerInfo  .infoConsulta .infoUno {
+            display: flex;
+            flex-direction: column;
+            margin-left: 6em;
+        }
+
+        /*Contenedor Nombre y Diagnostico*/
+        .containerInfo .infoConsulta .infoUno .nameContainer {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            height: 2em;
+        }
+
+        .containerInfo .infoConsulta .infoUno .nameContainer p{
+            margin-left: 1em;
+        }
+
+        .containerInfo .infoConsulta .infoUno .diagContainer {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            height: 2em;
+        }
+
+        .containerInfo .infoConsulta .infoUno .diagContainer p{
+            margin-left: 1em;
+            width: 100%;
+            height: auto;
+        }
+
+        /*Contenedor Edad y fecha*/
+        .containerInfo  .infoConsulta .infoDos {
+            display: flex;
+            flex-direction: column;
+            margin-left: 9.5em;
+            margin-bottom: 3em;
+        }
+
+        .containerInfo .infoConsulta .infoDos .edadContainer {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            height: 2em;
+        }
+
+        .containerInfo .infoConsulta .infoDos .edadContainer p{
+            margin-left: 1em;
+        }
+
+        .containerInfo .infoConsulta .infoDos .fechaContainer {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            height: 2em;
+        }
+
+        .containerInfo .infoConsulta .infoDos .fechaContainer p{
+            margin-left: 1em;
+        }
+
+        /*Cotenedor Receta*/
+
+        .infoReceta {
+            display: flex;
+        }
+
+        .infoReceta .infoR{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .infoReceta .infoUnoR {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5em;
+            margin-left: 4em;
+        }
+
+
+        .infoReceta .infoDosR {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5em;
+            margin-left: 4em;
+        }
+
+        .infoReceta .infoTresR {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5em;
+            margin-left: 4em;
+        }
+
+        .infoReceta .infoUnoR .taContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+        }
+
+        .infoReceta .infoUnoR .taContainer p{
+            margin-left: 1em;
+        }
+
+        .infoReceta .infoUnoR .fcContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+        }
+
+        .infoReceta .infoUnoR .fcContainer p{
+            margin-left: 1em;
+        }
+
+        .infoReceta .infoDosR .frContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+        }
+
+        .infoReceta .infoDosR .frContainer p{
+            margin-left: 1em;
+        }
+
+        .infoReceta .infoDosR .tempContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+        }
+
+        .infoReceta .infoDosR .tempContainer p{
+            margin-left: 1em;
+        }
+
+        .infoReceta .infoTresR .pesoContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+        }
+
+        .infoReceta .infoTresR .pesoContainer p{
+            margin-left: 1em;
+        }
+
+        .infoReceta .infoTresR .tallaContainer {
+            display: flex;
+            align-items: center;
+            height: 2em;
+            margin-bottom: 4em;
+        }
+
+        .infoReceta .infoTresR .tallaContainer p{
+            margin-left: 1em;
+        }
+
+        /*Imagen fondo*/
+
+        .imgFondo {
+            display: flex;
+            justify-content: center;
+            margin-left: 25em;
+        }
+
+        .imgFondo img {
+            width: 25em;
+            height: 25em;
+            bottom: -20px;
+        }
+    </style>
 
 </head>
 <body>
 
     <header>
-        <img src="../img/header.jpg" alt="">
+        <img src="/public/img/header.jpg" alt="">
     </header>
 
     <div class="containerInfo">   
@@ -81,7 +282,7 @@
             </div>
 
             <div class="imgFondo">
-                <img src="../img/iconoBG.png" alt="">
+                <img src="/public/img/iconoBG.png" alt="">
             </div>
         
         </div>
@@ -89,7 +290,7 @@
     </div>
 
     <footer>
-        <img src="../img/footer.jpg" alt="">
+        <img src="/public/img/footer.jpg" alt="">
     </footer>
 
 </body>

@@ -5,7 +5,7 @@ const path = require('path'); // Importar el módulo 'path'
 const bodyParser = require('body-parser');
 const puppeteer = require('puppeteer');
 const { v4: uuidv4 } = require('uuid');
-const PDFDocument = require('pdfkit');
+const pdf = require('html-pdf');
 
 const app = express();
 const port = 3000;
@@ -261,33 +261,46 @@ app.get('/exportar-pdf/:id', async (req, res) => {
     }
 });
 
-app.get('/otroPdf', (req, res) => {
-    // Creamos un nuevo documento PDF
-    const doc = new PDFDocument();
-    
-    // Creamos un stream de lectura y escritura
-    const stream = doc.pipe(fs.createWriteStream('otroPdf.pdf'));
-    
-    // Agregamos el texto "Hola mundo" al PDF
-    doc.text('Hola mundo');
-    
-    // Cerramos el documento
-    doc.end();
-    
-    // Cuando el documento esté terminado, respondemos al cliente con el archivo PDF
-    stream.on('finish', () => {
-      res.download('otroPdf.pdf', 'hola_mundo.pdf', (err) => {
-        if (err) {
-          console.error('Error al descargar el PDF:', err);
-          res.status(500).send('Hubo un error al descargar el PDF');
-        } else {
-          console.log('PDF descargado exitosamente');
-        }
-      });
-    });
-  });
+app.get('/otroPdf', async (req, res) => {
+    try {
+        // Renderizamos el archivo EJS con las variables necesarias
+        const htmlContent = await ejs.renderFile('./public/views/archivoPdf.ejs', {
+            paciente: {
+                nombre: 'Nombre del Paciente',
+                diagnostico: 'Diagnóstico del Paciente',
+                edad: 'Edad del Paciente',
+                ta: 'TA del Paciente',
+                fc: 'FC del Paciente',
+                fr: 'FR del Paciente',
+                temperatura: 'Temperatura del Paciente',
+                peso: 'Peso del Paciente',
+                talla: 'Talla del Paciente'
+            },
+            fechaActual: new Date().toLocaleDateString()
+        });
 
-  
+        // Opciones para la generación del PDF
+        const options = {
+            format: 'Letter'
+        };
+
+        // Generamos el PDF
+        pdf.create(htmlContent, options).toFile('otroPdf.pdf', (err, response) => {
+            if (err) {
+                console.error('Error al generar el PDF:', err);
+                res.status(500).send('Hubo un error al generar el PDF');
+            } else {
+                console.log('PDF generado exitosamente:', response.filename);
+                res.download('otroPdf.pdf', 'archivo.pdf');
+            }
+        });
+    } catch (error) {
+        console.error('Error al renderizar el archivo EJS:', error);
+        res.status(500).send('Hubo un error al renderizar el archivo EJS');
+    }
+});
+
+
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor web iniciado en http://localhost:${port}`);
