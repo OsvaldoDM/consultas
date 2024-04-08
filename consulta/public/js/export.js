@@ -6,7 +6,7 @@ document.getElementById('btnExportPDF').addEventListener('click', async () => {
         console.error('No se pudo extraer el ID del paciente de la URL.');
         return;
     }
-    const id = idMatch[2];
+    const id = idMatch[0].split('/').pop(); // Tomamos el último segmento de la URL
 
     const response = await fetch('/otroPdf/'+id);
     const blob = await response.blob();
