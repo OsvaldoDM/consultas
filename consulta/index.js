@@ -262,19 +262,21 @@ app.get('/exportar-pdf/:id', async (req, res) => {
 });
 
 app.get('/otroPdf', async (req, res) => {
+
+    const pacienteId = req.params.id;
     try {
         // Renderizamos el archivo EJS con las variables necesarias
         const htmlContent = await ejs.renderFile('./public/views/archivoPdf.ejs', {
             paciente: {
                 nombre: 'Nombre del Paciente',
                 diagnostico: 'Diagnóstico del Paciente',
-                edad: 'Edad del Paciente',
+                edad: 'Edad',
                 ta: 'TA del Paciente',
                 fc: 'FC del Paciente',
                 fr: 'FR del Paciente',
-                temperatura: 'Temperatura del Paciente',
-                peso: 'Peso del Paciente',
-                talla: 'Talla del Paciente'
+                temperatura: 'Temperatura',
+                peso: 'Peso',
+                talla: 'Talla'
             },
             fechaActual: new Date().toLocaleDateString()
         });
