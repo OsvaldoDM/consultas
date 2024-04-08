@@ -3,7 +3,7 @@ document.getElementById('btnExportPDF').addEventListener('click', async () => {
     const urlActual = window.location.href;
     const id = urlActual.replace("http://localhost:3000/paciente/", "");
 
-    const response = await fetch('/exportar-pdf/'+id);
+    const response = await fetch('/otroPdf/'+id);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');

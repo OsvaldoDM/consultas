@@ -13,5 +13,35 @@
     "peso": "321",
     "talla": "21",
     "fecha": "7/4/2024"
+  },
+  {
+    "id": "5c85cf2f-20c1-42df-9b81-539a212a80a6",
+    "nombre": "Kaneki",
+    "motivo": "s",
+    "costo": "120",
+    "diagnostico": "",
+    "edad": "",
+    "ta": "",
+    "fr": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null,
+    "fecha": "8/4/2024"
+  },
+  {
+    "id": "27adb18b-1333-45e7-9c5b-66cff231c595",
+    "nombre": "Sanemi",
+    "motivo": "as",
+    "costo": "412",
+    "diagnostico": "",
+    "edad": "",
+    "ta": "",
+    "fr": "",
+    "fc": "",
+    "temperatura": null,
+    "peso": null,
+    "talla": null,
+    "fecha": "8/4/2024"
   }
 ]

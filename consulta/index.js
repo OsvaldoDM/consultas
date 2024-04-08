@@ -232,51 +232,38 @@ app.get('/archivo/:id', (req, res) => {
     });
 });
 
-app.get('/exportar-pdf/:id', async (req, res) => {
+app.get('/otroPdf/:id', async (req, res) => {
 
     const pacienteId = req.params.id;
-
-
+    
     try {
-        const browser = await puppeteer.launch();
-        const page = await browser.newPage();
+
+        const data = await fs.promises.readFile('datos.json', 'utf8');
+
+        console.log(data)
         
-        // Configurar la URL de la página HTML que deseas exportar
-        await page.goto('http://localhost:3000/archivo/' + pacienteId, { waitUntil: 'networkidle0' });
+        // Parsear el JSON
+        const pacientes = JSON.parse(data);
 
-        // Generar el PDF
-        const pdfBuffer = await page.pdf({ format: 'A4' });
-        await browser.close();
+        const paciente = pacientes.find(p => p.id === pacienteId);
+        
+        if (!pacientes) {
+            res.status(404).send('Paciente no encontrado');
+            return;
+        }
 
-        // Enviar el PDF como respuesta
-        res.set({
-            'Content-Type': 'application/pdf',
-            'Content-Length': pdfBuffer.length,
-            'Content-Disposition': 'attachment; filename="receta mirell.pdf"'
-        });
-        res.send(pdfBuffer);
-    } catch (error) {
-        console.error('Error al exportar a PDF:', error);
-        res.status(500).send('Error interno del servidor');
-    }
-});
-
-app.get('/otroPdf', async (req, res) => {
-
-    const pacienteId = req.params.id;
-    try {
         // Renderizamos el archivo EJS con las variables necesarias
         const htmlContent = await ejs.renderFile('./public/views/archivoPdf.ejs', {
             paciente: {
-                nombre: 'Nombre del Paciente',
-                diagnostico: 'Diagnóstico del Paciente',
-                edad: 'Edad',
-                ta: 'TA del Paciente',
-                fc: 'FC del Paciente',
-                fr: 'FR del Paciente',
-                temperatura: 'Temperatura',
-                peso: 'Peso',
-                talla: 'Talla'
+                nombre: paciente.nombre,
+                diagnostico: paciente.diagnostico,
+                edad: paciente.edad,
+                ta: paciente.ta,
+                fc: paciente.fc,
+                fr: paciente.fr,
+                temperatura: paciente.temperatura,
+                peso: paciente.peso,
+                talla: paciente.talla
             },
             fechaActual: new Date().toLocaleDateString()
         });
@@ -300,6 +287,7 @@ app.get('/otroPdf', async (req, res) => {
         console.error('Error al renderizar el archivo EJS:', error);
         res.status(500).send('Hubo un error al renderizar el archivo EJS');
     }
+
 });
 
 
