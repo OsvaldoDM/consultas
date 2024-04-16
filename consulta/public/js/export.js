@@ -19,6 +19,15 @@ document.getElementById('btnExportPDF').addEventListener('click', async () => {
     document.body.appendChild(a);
     a.click();
     window.URL.revokeObjectURL(url);
+
+    // Mostrar la alerta personalizada
+    document.getElementById('customAlert').style.display = 'block';
+    // Ocultar la alerta después de 3 segundos (3000 milisegundos)
+    setTimeout(() => {
+        document.getElementById('customAlert').style.display = 'none';
+    }, 3000);
 });
 
-
+function closeCustomAlert() {
+    document.getElementById('customAlert').style.display = 'none';
+}

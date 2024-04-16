@@ -148,18 +148,35 @@
             position: absolute;
         }
 
+        .observacionesContainer h4{
+            top: 22em;
+            right: 31em;
+            width: 10em; /*ajusta el ancho según tus necesidades */
+            height: 1em;
+            position: absolute;
+        }
+
+        .observacionesContainer .divMedicina {
+            top: 25em;
+            right: 10em;
+            width: 31em; /*ajusta el ancho según tus necesidades */
+            height: 20em;
+            position: absolute;
+        }
+
         /*Imagen Fondo*/
         .imgFondo {
             top: 9em;
-            right: 4em;
+            right: 7em;
             width: 20em; /*ajusta el ancho según tus necesidades */
             height: 23em;
             position: absolute;
+            z-index: -1;
         }
 
         /*Footer*/
         .imgFooter {
-            width: 65em;
+            width: 60em;
         }
 
 
@@ -255,6 +272,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="observacionesContainer">
+                <h4>Medicina: </h4>
+                <div class="divMedicina">
+                    <p><%= paciente.receta %></p>
+                </ class="">  
             </div>
 
             <div class="imgFondo">

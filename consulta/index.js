@@ -3,7 +3,6 @@ const fs = require('fs');
 const ejs = require('ejs');
 const path = require('path'); // Importar el módulo 'path'
 const bodyParser = require('body-parser');
-const puppeteer = require('puppeteer');
 const { v4: uuidv4 } = require('uuid');
 const pdf = require('html-pdf');
 
@@ -81,6 +80,7 @@ app.post('/addpaciente', (req, res) => {
                 peso: null,
                 talla: null,
                 fecha: formattedDate,
+                receta:""
                 // Agrega más campos según sea necesario
             };
 
@@ -176,7 +176,8 @@ app.post('/guardar/:id', (req, res) => {
                 fc: req.body.fc,
                 temperatura: req.body.temperatura,
                 peso: req.body.peso,
-                talla: req.body.talla
+                talla: req.body.talla,
+                receta: req.body.receta
             };
 
             // Convertir de nuevo a JSON
@@ -190,7 +191,7 @@ app.post('/guardar/:id', (req, res) => {
                     return;
                 }
                 console.log('Datos actualizados exitosamente en el archivo JSON.');
-                res.redirect('/consultas');
+                res.redirect('/paciente/' + pacienteId);
             });
         } catch (error) {
             console.error('Error al analizar el archivo JSON:', error);
@@ -263,7 +264,8 @@ app.get('/otroPdf/:id', async (req, res) => {
                 fr: paciente.fr,
                 temperatura: paciente.temperatura,
                 peso: paciente.peso,
-                talla: paciente.talla
+                talla: paciente.talla,
+                receta: paciente.receta
             },
             fechaActual: new Date().toLocaleDateString()
         });

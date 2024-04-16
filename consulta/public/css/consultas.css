@@ -223,6 +223,7 @@ section {
     overflow: hidden;
     margin: 0.5em auto 0;
     border-radius: 0.5em;
+    height: 8em;
 }
 
 .consultas .info {
@@ -232,6 +233,19 @@ section {
     width: 50%; 
     margin-left: 5em;
     margin-bottom: 0;
+}
+
+.consultas .info h1 {
+    height: 0.5em;
+    padding-top: 0.3em;
+}
+
+.consultas .info p {
+    height: 0.5em;
+}
+
+.consultas .info .pMotivo {
+    padding-bottom: 1.5em;
 }
 
 .consultas .costBtnInfo {
